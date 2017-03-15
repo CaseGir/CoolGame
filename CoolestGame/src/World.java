@@ -16,7 +16,7 @@ public class World {
     private Rectangle leftSide, rightSide, top, bottom; //for wall hit detection
 
     public World(int w, int h){
-        width = 6;
+
         width = w;
         height = h;
         sprites = new ArrayList<Sprite>();

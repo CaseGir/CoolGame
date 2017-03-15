@@ -9,6 +9,7 @@ public class Main extends JPanel {
     private Timer timer;
     private World theWorld;
 
+
     public Main(){
 
         theWorld = new World(FRAMEWIDTH, FRAMEHEIGHT);

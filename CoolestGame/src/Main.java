@@ -4,7 +4,7 @@ import java.awt.event.*;
 
 public class Main extends JPanel {
 
-    public static final int FRAMEWIDTH = 1000, FRAMEHEIGHT = 600;
+    public static final int FRAMEWIDTH = 1200, FRAMEHEIGHT = 800;
 
     private Timer timer;
     private World theWorld;

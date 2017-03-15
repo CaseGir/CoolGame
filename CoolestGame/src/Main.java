@@ -8,6 +8,9 @@ public class Main extends JPanel {
 
     private Timer timer;
     private World theWorld;
+    private boolean[] keys;
+
+    private Sprite KittyCatFat;
 
 
     public Main(){
@@ -30,22 +33,29 @@ public class Main extends JPanel {
 
 
         //EventListeners.  Not using them at the moment.
-        addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent keyEvent) {
 
+            //move the KittyCatFat
+                if(keys[KeyEvent.VK_W]){
+                KittyCatFat.setDir(Sprite.NORTH);
+                KittyCatFat.update();
+                keys[KeyEvent.VK_W] = false; //probably.
+            }
+                if(keys[KeyEvent.VK_D]){
+                KittyCatFat.setDir(Sprite.EAST);
+                KittyCatFat.update();
+                keys[KeyEvent.VK_D] = false; //probably.
+            }
+                if(keys[KeyEvent.VK_A]){
+                KittyCatFat.setDir(Sprite.WEST);
+                KittyCatFat.update();
+                keys[KeyEvent.VK_A] = false; //probably.
+            }
+                if(keys[KeyEvent.VK_S]){
+                KittyCatFat.setDir(Sprite.SOUTH);
+                KittyCatFat.update();
+                keys[KeyEvent.VK_S] = false; //probably.
             }
 
-            @Override
-            public void keyPressed(KeyEvent keyEvent) {
-
-            }
-
-            @Override
-            public void keyReleased(KeyEvent keyEvent) {
-
-            }
-        });
 
         addMouseListener(new MouseListener() {
             @Override

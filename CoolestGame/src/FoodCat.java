@@ -13,6 +13,11 @@ public class FoodCat extends Sprite {
         setLoc(new Point(a,b));
         setSpeed(1);
     }
+
+    @Override
+    public void update(){
+
+    }
     // we will eat these to get bigger
     // they will randomly spawn
     // we will need more and more each time to level up

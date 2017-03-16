@@ -16,7 +16,7 @@ public class FoodCat extends Sprite {
 
     @Override
     public void update(){
-    //rawr
+
     }
 
     // we will eat these to get bigger

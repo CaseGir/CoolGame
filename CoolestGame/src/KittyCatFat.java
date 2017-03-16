@@ -23,6 +23,8 @@ public class KittyCatFat extends Sprite{
 
         super.update();
     }
+    //this must level up each time it gets a certain amount of FoodCats
+
 
 
 }

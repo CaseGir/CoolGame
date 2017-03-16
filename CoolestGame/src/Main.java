@@ -9,7 +9,6 @@ public class Main extends JPanel {
     private Timer timer;
     private World theWorld;
     private boolean[] keys;
-    //ay wat up
     private Sprite KittyCatFat;
 
 
@@ -55,6 +54,11 @@ public class Main extends JPanel {
                 KittyCatFat.update();
                 keys[KeyEvent.VK_S] = false; //lol if it works, it works
             }
+//             if(keys[KeyEvent.VK_P]){
+//                KittyCatFat.setDir(Sprite.WEST);
+//                KittyCatFat.update();
+//                keys[KeyEvent.VK_P] = false;   // make it push the foodcat and eat it
+//             }
 
 
         addMouseListener(new MouseListener() {

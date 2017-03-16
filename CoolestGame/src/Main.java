@@ -20,7 +20,7 @@ public class Main extends JPanel {
         //These are the Sprites that are added to the World...
 //        theWorld.addSprite(new Sprite(800, 300, Sprite.SE, theWorld));
 
-
+        System.out.println();
 
         timer = new Timer(40, new ActionListener() {
             @Override

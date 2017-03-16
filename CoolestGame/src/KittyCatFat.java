@@ -6,7 +6,7 @@ import java.awt.*;
 public class KittyCatFat extends Sprite{
     public KittyCatFat(World aWorld){
         super(aWorld);
-        setPic(" ", NORTH);
+        setPic("baseCat.png", NORTH);
         setLoc(new Point(100, 100));
         setSpeed(this.getBoundingRectangle().height);
     }

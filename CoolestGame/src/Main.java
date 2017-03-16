@@ -38,22 +38,22 @@ public class Main extends JPanel {
                 if(keys[KeyEvent.VK_W]){
                 KittyCatFat.setDir(Sprite.NORTH);
                 KittyCatFat.update();
-                keys[KeyEvent.VK_W] = false; //probably.
+                keys[KeyEvent.VK_W] = false; //maybe
             }
                 if(keys[KeyEvent.VK_D]){
                 KittyCatFat.setDir(Sprite.EAST);
                 KittyCatFat.update();
-                keys[KeyEvent.VK_D] = false; //probably.
+                keys[KeyEvent.VK_D] = false; //maybe
             }
                 if(keys[KeyEvent.VK_A]){
                 KittyCatFat.setDir(Sprite.WEST);
                 KittyCatFat.update();
-                keys[KeyEvent.VK_A] = false; //probably.
+                keys[KeyEvent.VK_A] = false; //maybe
             }
                 if(keys[KeyEvent.VK_S]){
                 KittyCatFat.setDir(Sprite.SOUTH);
                 KittyCatFat.update();
-                keys[KeyEvent.VK_S] = false; //probably.
+                keys[KeyEvent.VK_S] = false; //lol if it works, it works
             }
 
 

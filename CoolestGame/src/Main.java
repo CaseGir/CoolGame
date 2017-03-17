@@ -4,7 +4,7 @@ import java.awt.event.*;
 
 public class Main extends JPanel {
 
-    public static final int FRAMEWIDTH = 1000, FRAMEHEIGHT = 600;
+    public static final int FRAMEWIDTH = 1200, FRAMEHEIGHT = 800;
 
     private Timer timer;
     private World theWorld;
@@ -108,5 +108,10 @@ public class Main extends JPanel {
         window.add(panel);
         window.setVisible(true);
         window.setResizable(false);
+    }
+
+    public void drawColors(Graphics2D g2){
+        g2.setColor(new Color(7, 175, 82));
+        g2.fillRect(0,0,1200,800);
     }
 }

@@ -8,23 +8,31 @@ public class KittyCatFat extends Sprite{
         super(aWorld);
         setPic("baseCat.png", NORTH);
         setLoc(new Point(100, 100));
-        setSpeed(this.getBoundingRectangle().height);
     }
     //this is the cat that eats the other cats.
     @Override
     public void update() {
-
-        if (this.facingEast() || this.facingWest()) {
-            setPic("", NORTH);
+        World w = getWorld();
+        if(w.hitRightSide(this) && facingEast()){
+            setDir(SOUTH);
+            getLoc().translate(-getSpeed(), 0);
         }
-        if( this.facingNorth() || this.facingSouth()){
-            setPic("", NORTH);
+        if(w.hitLeftSide(this)&& facingWest()){
+            setDir(NORTH);
+            getLoc().translate(getSpeed(), 0);
         }
+        if(w.hitTop(this) && facingNorth()){
+            setDir(EAST);
 
+            getLoc().translate(0, getSpeed());
+        }
+        if(w.hitBottom(this) && facingSouth()){
+            setDir(WEST);
+            getLoc().translate(0, -getSpeed());
+        }
         super.update();
     }
     //this must level up each time it gets a certain amount of FoodCats
-
 
 
 }

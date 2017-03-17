@@ -4,13 +4,10 @@ import java.awt.event.*;
 
 public class Main extends JPanel {
 
-    public static final int FRAMEWIDTH = 1200, FRAMEHEIGHT = 800;
+    public static final int FRAMEWIDTH = 1000, FRAMEHEIGHT = 600;
 
     private Timer timer;
     private World theWorld;
-    private boolean[] keys;
-    private Sprite KittyCatFat;
-
 
     public Main(){
 
@@ -19,12 +16,15 @@ public class Main extends JPanel {
         //These are the Sprites that are added to the World...
 //        theWorld.addSprite(new Sprite(800, 300, Sprite.SE, theWorld));
 
-        System.out.println();
+        theWorld.addSprite(new KittyCatFat(theWorld));
+
 
         timer = new Timer(40, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
 
+                //This will call update on each sprite.
+                theWorld.updateSprites();
                 repaint();
             }
         });
@@ -32,34 +32,22 @@ public class Main extends JPanel {
 
 
         //EventListeners.  Not using them at the moment.
+        addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent keyEvent) {
 
-            //move the KittyCatFat
-                if(keys[KeyEvent.VK_W]){
-                KittyCatFat.setDir(Sprite.NORTH);
-                KittyCatFat.update();
-                keys[KeyEvent.VK_W] = false; //maybe
             }
-                if(keys[KeyEvent.VK_D]){
-                KittyCatFat.setDir(Sprite.EAST);
-                KittyCatFat.update();
-                keys[KeyEvent.VK_D] = false; //maybe
-            }
-                if(keys[KeyEvent.VK_A]){
-                KittyCatFat.setDir(Sprite.WEST);
-                KittyCatFat.update();
-                keys[KeyEvent.VK_A] = false; //maybe
-            }
-                if(keys[KeyEvent.VK_S]){
-                KittyCatFat.setDir(Sprite.SOUTH);
-                KittyCatFat.update();
-                keys[KeyEvent.VK_S] = false; //lol if it works, it works
-            }
-//             if(keys[KeyEvent.VK_P]){
-//                KittyCatFat.setDir(Sprite.WEST);
-//                KittyCatFat.update();
-//                keys[KeyEvent.VK_P] = false;   // make it push the foodcat and eat it
-//             }
 
+            @Override
+            public void keyPressed(KeyEvent keyEvent) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent keyEvent) {
+
+            }
+        });
 
         addMouseListener(new MouseListener() {
             @Override
@@ -100,7 +88,7 @@ public class Main extends JPanel {
         Graphics2D g2 = (Graphics2D)g;
 
         //Draws all the sprites.
-
+        theWorld.drawSprites(g2);
 
     }
 

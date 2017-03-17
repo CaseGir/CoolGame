@@ -47,7 +47,8 @@ public class World {
             g2.fill(bottom);
             g2.fill(leftSide);
             g2.fill(rightSide);
-        }
+    }
+
 
 
     public void addSprite(Sprite sprite){

@@ -4,10 +4,11 @@ import java.awt.*;
  * Created by cassandra_varnau on 3/15/17.
  */
 public class KittyCatFat extends Sprite{
-    public KittyCatFat(World aWorld){
-        super(aWorld);
+
+    public KittyCatFat(int x, int y, World w){
+        super(x, y,w);
         setPic("baseCat.png", NORTH);
-        setLoc(new Point(100, 100));
+        setSpeed(10);
     }
     //this is the cat that eats the other cats.
     @Override

@@ -1,3 +1,20 @@
+/**
+ *
+ * to do:
+ - make basic cat transparent
+ - find more cats for the thing to turn into
+ - make Sprite bounce off walls
+ - make a bar to show how many we have eaten - make this number increase once the goal is reached
+ - make Food randomly spawn
+    - if the number needed for food is 500, then also have GodCat you can eat
+ - these will be worth more in the food bar
+ - make a cool window that will explain what it is if an icon is clicked
+ */
+
+
+
+
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;

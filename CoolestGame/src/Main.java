@@ -16,7 +16,7 @@ public class Main extends JPanel {
         //These are the Sprites that are added to the World...
 //        theWorld.addSprite(new Sprite(800, 300, Sprite.SE, theWorld));
 
-        theWorld.addSprite(new KittyCatFat(100, 100, Sprite.EAST, theWorld));
+        theWorld.addSprite(new KittyCatFat(100, 100,Sprite.EAST,theWorld));
 
 
         timer = new Timer(40, new ActionListener() {
@@ -58,7 +58,7 @@ public class Main extends JPanel {
             @Override
             public void mousePressed(MouseEvent mouseEvent) {
                 //Ask the world if any sprites contain the click
-                theWorld.click(mouseEvent);
+//                theWorld.click(mouseEvent);
 
                 repaint();
             }

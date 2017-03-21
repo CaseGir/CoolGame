@@ -3,10 +3,9 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-/**
- * Created by cassandra_varnau on 3/15/17.
- */
+
 public class Sprite {
+
     private static int nextID = 1;
 
     private Point loc; //top left corner of this Sprite. Note loc.x and loc.y are the easy way to access the point.
@@ -83,7 +82,7 @@ public class Sprite {
      */
     public void setPic(String fileName, int orientation) {
         try {
-            pic = ImageIO.read(new File("res/" + fileName));
+            pic = ImageIO.read(new File("CoolestGame/res/" + fileName));
             picOrientation = orientation;
         } catch (Exception e) {
             e.printStackTrace();

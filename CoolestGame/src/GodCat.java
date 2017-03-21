@@ -8,7 +8,7 @@ public class GodCat extends FoodCat {
 
     public GodCat(World aworld) {
         super(aworld);
-        setPic("", NORTH);
+        setPic("baseCat.png", NORTH);
         int a = (int)((Math.random() * 1200));
         int b = (int)((Math.random() * 800 ));
         setLoc(new Point(a,b));

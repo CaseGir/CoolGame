@@ -5,9 +5,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
 
-/**
- * Created by cassandra_varnau on 3/13/17.
- */
 public class World {
 
     private ArrayList<Sprite> sprites;
@@ -16,7 +13,6 @@ public class World {
     private Rectangle leftSide, rightSide, top, bottom; //for wall hit detection
 
     public World(int w, int h){
-
         width = w;
         height = h;
         sprites = new ArrayList<Sprite>();
@@ -26,6 +22,9 @@ public class World {
         bottom = new Rectangle(-5, height-5, width+10, 10);
     }
 
+    /**
+     * Updates each Sprite
+     */
     public void updateSprites(){
         for (int i = 0; i < sprites.size(); i++) {
             Sprite sprite = sprites.get(i);
@@ -33,27 +32,33 @@ public class World {
         }
     }
 
+    /**
+     * Draws each Sprite
+     * @param g2
+     */
     public void drawSprites(Graphics2D g2){
-            if(background != null)
-                g2.drawImage(background, 0, 0, null);
+        if(background != null)
+            g2.drawImage(background, 0, 0, null);
 
-            g2.setColor(Color.BLACK);
-            g2.drawRect(0,0,width,height);
+        g2.setColor(Color.BLACK);
+        g2.drawRect(0,0,width,height);
 
-            for (int i = 0; i < sprites.size(); i++) {
-                sprites.get(i).draw(g2);
-            }
-            g2.fill(top);
-            g2.fill(bottom);
-            g2.fill(leftSide);
-            g2.fill(rightSide);
+        for (int i = 0; i < sprites.size(); i++) {
+            sprites.get(i).draw(g2);
+        }
+        g2.fill(top);
+        g2.fill(bottom);
+        g2.fill(leftSide);
+        g2.fill(rightSide);
     }
 
 
-
+    /**
+     * Adds a sprite to the world.
+     * @param sprite
+     */
     public void addSprite(Sprite sprite){
         sprites.add(sprite);
-
     }
 
     public void removeSprite(Sprite sprite){
@@ -65,7 +70,10 @@ public class World {
         }
     }
 
-
+    /**
+     * Returns an ArrayList of all the Sprites in the World.
+     * @return
+     */
     public ArrayList<Sprite> getAllSprites(){
         return sprites;
     }
@@ -89,21 +97,18 @@ public class World {
             return true;
         return false;
     }
-
     public boolean hitRightSide(Sprite spr){
         Rectangle spriteBox = spr.getBoundingRectangle();
         if(spriteBox.intersects(rightSide))
             return true;
         return false;
     }
-
     public boolean hitTop(Sprite spr){
         Rectangle spriteBox = spr.getBoundingRectangle();
         if(spriteBox.intersects(top))
             return true;
         return false;
     }
-
     public boolean hitBottom(Sprite spr){
         Rectangle spriteBox = spr.getBoundingRectangle();
         if(spriteBox.intersects(bottom))
@@ -129,7 +134,5 @@ public class World {
             }
         }
     }
-
-
 
 }

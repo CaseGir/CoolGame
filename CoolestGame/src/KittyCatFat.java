@@ -5,35 +5,23 @@ import java.awt.*;
  */
 public class KittyCatFat extends Sprite{
 
-    public KittyCatFat(int x, int y, int dir , World w){
-        super(x, y, dir, w);
-        setPic("baseCat.png", NORTH);
-        setSpeed(10);
-    }
-    //this is the cat that eats the other cats.
-    @Override
-    public void update() {
-        World w = getWorld();
-        if(w.hitRightSide(this) && facingEast()){
-            setDir(SOUTH);
-            getLoc().translate(-getSpeed(), 0);
-        }
-        if(w.hitLeftSide(this)&& facingWest()){
-            setDir(NORTH);
-            getLoc().translate(getSpeed(), 0);
-        }
-        if(w.hitTop(this) && facingNorth()){
-            setDir(EAST);
+    private int steps, maxSteps;
 
-            getLoc().translate(0, getSpeed());
+
+    public KittyCatFat(int x, int y, int nSteps, World world){
+        super(x,y, EAST, world);
+        steps = 0;
+        maxSteps = nSteps;
+        setPic("baseCat.png", NORTH);
+    }
+    @Override
+    public void update(){
+
+        if(steps == maxSteps){
+            steps = 0;
+            rotateBy(-90);
         }
-        if(w.hitBottom(this) && facingSouth()){
-            setDir(WEST);
-            getLoc().translate(0, -getSpeed());
-        }
+        steps++;
         super.update();
     }
-    //this must level up each time it gets a certain amount of FoodCats
-
-
 }

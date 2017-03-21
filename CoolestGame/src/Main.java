@@ -13,8 +13,6 @@
 
 
 
-
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -106,9 +104,6 @@ public class Main extends JPanel {
 
         g2.setColor(new Color(7, 175, 82));
         g2.fillRect(0,0,1200,800);
-
-        g2.setColor(new Color(6, 144, 67));
-        //draw grass
 
         //Draws all the sprites.
         theWorld.drawSprites(g2);

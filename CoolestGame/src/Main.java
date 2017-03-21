@@ -9,14 +9,14 @@ public class Main extends JPanel {
     private Timer timer;
     private World theWorld;
 
-    public Main(){
+    public Main() {
 
         theWorld = new World(FRAMEWIDTH, FRAMEHEIGHT);
 
         //These are the Sprites that are added to the World...
 //        theWorld.addSprite(new Sprite(800, 300, Sprite.SE, theWorld));
 
-        theWorld.addSprite(new KittyCatFat(100,100,theWorld));
+        theWorld.addSprite(new KittyCatFat(100, 100, theWorld));
 
 
         timer = new Timer(40, new ActionListener() {
@@ -83,9 +83,12 @@ public class Main extends JPanel {
     }
 
     //Our paint method.
-    public void paintComponent(Graphics g){
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Graphics2D g2 = (Graphics2D)g;
+        Graphics2D g2 = (Graphics2D) g;
+
+        g2.setColor(new Color(7, 175, 82));
+        g2.fillRect(0,0,1200,800);
 
         //Draws all the sprites.
         theWorld.drawSprites(g2);
@@ -110,8 +113,4 @@ public class Main extends JPanel {
         window.setResizable(false);
     }
 
-    public void drawColors(Graphics2D g2){
-        g2.setColor(new Color(7, 175, 82));
-        g2.fillRect(0,0,1200,800);
-    }
 }

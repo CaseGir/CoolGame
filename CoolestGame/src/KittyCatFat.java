@@ -5,8 +5,8 @@ import java.awt.*;
  */
 public class KittyCatFat extends Sprite{
 
-    public KittyCatFat(int x, int y, World w){
-        super(x, y,w);
+    public KittyCatFat(int x, int y, int dir , World w){
+        super(x, y, dir, w);
         setPic("baseCat.png", NORTH);
         setSpeed(10);
     }

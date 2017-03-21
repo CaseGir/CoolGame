@@ -16,7 +16,7 @@ public class Main extends JPanel {
         //These are the Sprites that are added to the World...
 //        theWorld.addSprite(new Sprite(800, 300, Sprite.SE, theWorld));
 
-        theWorld.addSprite(new KittyCatFat(100, 100, theWorld));
+        theWorld.addSprite(new KittyCatFat(100, 100, Sprite.EAST, theWorld));
 
 
         timer = new Timer(40, new ActionListener() {

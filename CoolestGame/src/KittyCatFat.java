@@ -1,27 +1,26 @@
-import java.awt.*;
+
 
 /**
  * Created by cassandra_varnau on 3/15/17.
  */
 public class KittyCatFat extends Sprite{
 
-    private int steps, maxSteps;
 
-
-    public KittyCatFat(int x, int y, int nSteps, World world){
-        super(x,y, EAST, world);
-        steps = 0;
-        maxSteps = nSteps;
-        setPic("baseCat.png", NORTH);
+    public KittyCatFat(){
+        super(600, 700, NORTH);
+        setSpeed(this.getBoundingRectangle().height);
     }
     @Override
-    public void update(){
+    public void update() {
 
-        if(steps == maxSteps){
-            steps = 0;
-            rotateBy(-90);
+        if (this.facingEast() || this.facingWest()) {
+            setPic("baseCat.png", NORTH);
         }
-        steps++;
+        if( this.facingNorth() || this.facingSouth()){
+            setPic("baseCat.png", NORTH);
+        }
+
         super.update();
     }
+
 }

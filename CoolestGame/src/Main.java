@@ -1,7 +1,6 @@
 /**
  *
  * to do:
- - make basic cat transparent
  - find more cats for the thing to turn into
  - make Sprite bounce off walls
  - make a bar to show how many we have eaten - make this number increase once the goal is reached

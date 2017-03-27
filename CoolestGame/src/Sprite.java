@@ -11,39 +11,26 @@ public class Sprite {
     private Point loc; //top left corner of this Sprite. Note loc.x and loc.y are the easy way to access the point.
     private int dir, picOrientation; //dir is the current direction in degrees.  See the constants below.
     private BufferedImage pic; //put the file in the res folder.
-    private World myWorld; //the world this sprite exists in!
     private int speed; //Number of pixels moved each frame.
     private int id;
     public static final int NORTH = 90, SOUTH = 270, WEST = 180, EAST = 0, NE = 45, NW = 135, SW = 225, SE = 315;
 
     //Constructors.
-    public Sprite(World world) {
-        loc = new Point(0, 0);
-        dir = EAST;
-        setPic("blank.png", NORTH);
-        myWorld = world;
-        speed = 5;
 
-        id = nextID;
-        nextID++;
-    }
-
-    public Sprite(int x, int y, int direction, World world) {
+    public Sprite(int x, int y, int direction) {
         loc = new Point(x, y);
         dir = direction;
-        setPic("blank.png", NORTH);
-        myWorld = world;
+        setPic("baseCat.png", NORTH);
         speed = 5;
 
         id = nextID;
         nextID++;
     }
 
-    public Sprite(Point location, int direction, World world) {
+    public Sprite(Point location, int direction) {
         loc = location;
         dir = direction;
-        setPic("blank.png", NORTH);
-        myWorld = world;
+        setPic("baseCat.png", NORTH);
         speed = 5;
 
         id = nextID;
@@ -57,10 +44,7 @@ public class Sprite {
         double rotationRequired = Math.toRadians(picOrientation - dir);
         double locationX = pic.getWidth() / 2;
         double locationY = pic.getHeight() / 2;
-//        AffineTransform tx = AffineTransform.getRotateInstance(rotationRequired, locationX, locationY);
-//        AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
         g2.rotate(rotationRequired, loc.x+locationX, loc.y+locationX);
-//        g2.drawImage(op.filter(pic, null), loc.x, loc.y, null);
         g2.drawImage(pic, loc.x, loc.y, null);
         g2.rotate(-rotationRequired, loc.x+locationX, loc.y+locationX);
     }
@@ -150,20 +134,6 @@ public class Sprite {
         this.pic = pic;
     }
 
-
-    /**
-     *Returns the world in which this sprite lives.
-     */
-    public World getWorld() {
-        return myWorld;
-    }
-
-    /**
-     *Changes the world in which this sprite lives.
-     */
-    public void setMyWorld(World myWorld) {
-        this.myWorld = myWorld;
-    }
 
     /**
      * Returns true if this Sprite is facing East, not true EAST, but EAST at all.

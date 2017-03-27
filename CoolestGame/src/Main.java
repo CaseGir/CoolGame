@@ -1,7 +1,6 @@
 /**
  *
  * to do:
- - make basic cat transparent
  - find more cats for the thing to turn into
  - make Sprite bounce off walls
  - make a bar to show how many we have eaten - make this number increase once the goal is reached
@@ -23,6 +22,7 @@ public class Main extends JPanel {
 
     private Timer timer;
     private World theWorld;
+    private Sprite cat;
 
     public Main() {
 
@@ -30,8 +30,8 @@ public class Main extends JPanel {
 
         //These are the Sprites that are added to the World...
 //        theWorld.addSprite(new Sprite(800, 300, Sprite.SE, theWorld));
-
-        theWorld.addSprite(new KittyCatFat(100, 100,Sprite.EAST,theWorld));
+            cat = new KittyCatFat(100, 100,Sprite.EAST,theWorld);
+        theWorld.addSprite(cat);
 
 
         timer = new Timer(40, new ActionListener() {

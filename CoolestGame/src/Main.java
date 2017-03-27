@@ -46,7 +46,18 @@ public class Main extends JPanel {
                     cat.setDir(Sprite.NORTH);
                     cat.update();
                 }
-
+                if(keys[KeyEvent.VK_A] ) {
+                    cat.setDir(Sprite.WEST);
+                    cat.update();
+                }
+                if(keys[KeyEvent.VK_D] ) {
+                    cat.setDir(Sprite.EAST);
+                    cat.update();
+                }
+                if(keys[KeyEvent.VK_S] ) {
+                    cat.setDir(Sprite.SOUTH);
+                    cat.update();
+                }
 
 
                 theWorld.updateSprites();

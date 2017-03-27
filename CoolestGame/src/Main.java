@@ -21,19 +21,14 @@ public class Main extends JPanel {
     public static final int FRAMEWIDTH = 1200, FRAMEHEIGHT = 800;
 
     private Timer timer;
-    private World theWorld;
     private Sprite cat;
 
     private boolean[] keys;
 
     public Main() {
         keys = new boolean[512];
-        theWorld = new World(FRAMEWIDTH, FRAMEHEIGHT);
 
-        //These are the Sprites that are added to the World...
-//        theWorld.addSprite(new Sprite(800, 300, Sprite.SE, theWorld));
-            cat = new KittyCatFat(100, 100,Sprite.EAST,theWorld);
-//        theWorld.addSprite(cat);
+            cat = new KittyCatFat(100, 100,Sprite.EAST);
         theWorld.addSprite(new GodCat(400, 400,Sprite.EAST,theWorld));
 
 

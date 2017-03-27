@@ -5,8 +5,8 @@ import java.awt.*;
  */
 public class FoodCat extends Sprite {
 
-    public FoodCat(World aworld) {
-        super(aworld);
+    public FoodCat(int x, int y, int nSteps){
+        super(x,y, EAST);
         setPic("baseCat", NORTH);
         int a = (int)((Math.random() * 1200));
         int b = (int)((Math.random() * 800 ));

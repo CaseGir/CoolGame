@@ -8,8 +8,8 @@ public class KittyCatFat extends Sprite{
     private int steps, maxSteps;
 
 
-    public KittyCatFat(int x, int y, int nSteps){
-        super(x,y, EAST);
+    public KittyCatFat(int x, int y, int nSteps, World world){
+        super(x,y, EAST, world);
         steps = 0;
         maxSteps = nSteps;
         setPic("baseCat.png", NORTH);

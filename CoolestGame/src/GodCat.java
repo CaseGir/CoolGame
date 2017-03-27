@@ -6,8 +6,8 @@ import java.awt.*;
 public class GodCat extends Sprite {
     //better food
 
-    public GodCat(int x, int y, int nSteps){
-        super(x,y, EAST);
+    public GodCat(int x, int y, int nSteps, World world){
+        super(x,y, EAST, world);
         setPic("GodCat.png", NORTH);
         int a = (int)((Math.random() * 1200));
         int b = (int)((Math.random() * 800 ));

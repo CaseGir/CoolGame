@@ -7,52 +7,39 @@ import java.util.ArrayList;
 public class FoodCat extends Sprite {
 
     private Rectangle leftSide, rightSide, top, bottom;
-    private int width, height;
+    private int vx, vy;
 
-    public FoodCat(int x, int y,int w, int h) {
-        width = w;
-        height = h;
-        leftSide = new Rectangle(-5, -5, 10, height+10);
-        rightSide = new Rectangle(width-5, -5, 10, height+10);
-        top = new Rectangle(-5, -5, width+10, 10);
-        bottom = new Rectangle(-5, height-5, width+10, 10);
-        super(x,y);
+    public FoodCat(int x, int y, int vx, int vy) {
+       super(x,y);
+        this.vx = vx;
+        this.vy = vy;
         setPic("baseCat", NORTH);
-        int a = (int)((Math.random() * 1200));
-        int b = (int)((Math.random() * 800 ));
-        setLoc(new Point(a,b));
+//        int a = (int)((Math.random() * 1200));
+//        int b = (int)((Math.random() * 800 ));
+//        setLoc(new Point(a,b));
         setSpeed(1);
     }
 
-    @Override
-    public void update(){
-        public boolean isOnScreen(){
-            return (x > -1 && x < width && y > -1 && y < height);
-        }
+        public void move(int w, int h){
 
-        public boolean hitLeftSide(Sprite spr){
-            Rectangle spriteBox = spr.getBoundingRectangle();
-            if(spriteBox.intersects(leftSide))
-                return true;
-            return false;
-        }
-        public boolean hitRightSide(Sprite spr){
-            Rectangle spriteBox = spr.getBoundingRectangle();
-            if(spriteBox.intersects(rightSide))
-                return true;
-            return false;
-        }
-        public boolean hitTop(Sprite spr){
-            Rectangle spriteBox = spr.getBoundingRectangle();
-            if(spriteBox.intersects(top))
-                return true;
-            return false;
-        }
-        public boolean hitBottom(Sprite spr){
-            Rectangle spriteBox = spr.getBoundingRectangle();
-            if(spriteBox.intersects(bottom))
-                return true;
-            return false;
+            if( x <= 0 ) {  //left side bounce
+                vx = -vx;
+                x = 0;
+            }
+            if( y <= 0) {  //top side bounce
+                vy = -vy;
+                y = 0;
+            }
+            if( x + getBoundingRectangle() >= w) {  //right side bounce
+                vx = -vx;
+                x = w - getBoundingRectangle();
+            }
+            if( y + getBoundingRectangle() >= h) {   //bottom side bounce
+                vy = -vy;
+                y = h - getBoundingRectangle();
+            }
+            x += vx;
+            y += vy;
         }
 
     }

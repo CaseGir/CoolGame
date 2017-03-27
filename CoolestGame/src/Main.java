@@ -24,14 +24,17 @@ public class Main extends JPanel {
     private World theWorld;
     private Sprite cat;
 
-    public Main() {
+    private boolean[] keys;
 
+    public Main() {
+        keys = new boolean[512];
         theWorld = new World(FRAMEWIDTH, FRAMEHEIGHT);
 
         //These are the Sprites that are added to the World...
 //        theWorld.addSprite(new Sprite(800, 300, Sprite.SE, theWorld));
             cat = new KittyCatFat(100, 100,Sprite.EAST,theWorld);
-        theWorld.addSprite(cat);
+//        theWorld.addSprite(cat);
+        theWorld.addSprite(new GodCat(400, 400,Sprite.EAST,theWorld));
 
 
         timer = new Timer(40, new ActionListener() {
@@ -39,6 +42,13 @@ public class Main extends JPanel {
             public void actionPerformed(ActionEvent actionEvent) {
 
                 //This will call update on each sprite.
+                if(keys[KeyEvent.VK_W] ) {
+                    cat.setDir(Sprite.NORTH);
+                    cat.update();
+                }
+
+
+
                 theWorld.updateSprites();
                 repaint();
             }
@@ -55,11 +65,12 @@ public class Main extends JPanel {
 
             @Override
             public void keyPressed(KeyEvent keyEvent) {
-
+                keys[keyEvent.getKeyCode()] = true;
             }
 
             @Override
             public void keyReleased(KeyEvent keyEvent) {
+                keys[keyEvent.getKeyCode()] = false;
 
             }
         });

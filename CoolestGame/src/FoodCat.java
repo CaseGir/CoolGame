@@ -9,15 +9,14 @@ public class FoodCat extends Sprite {
     private Rectangle leftSide, rightSide, top, bottom;
     private int width, height;
 
-    public FoodCat() {
+    public FoodCat(int x, int y,int w, int h) {
         width = w;
         height = h;
-        sprites = new ArrayList<Sprite>();
         leftSide = new Rectangle(-5, -5, 10, height+10);
         rightSide = new Rectangle(width-5, -5, 10, height+10);
         top = new Rectangle(-5, -5, width+10, 10);
         bottom = new Rectangle(-5, height-5, width+10, 10);
-        super();
+        super(x,y);
         setPic("baseCat", NORTH);
         int a = (int)((Math.random() * 1200));
         int b = (int)((Math.random() * 800 ));
@@ -27,7 +26,7 @@ public class FoodCat extends Sprite {
 
     @Override
     public void update(){
-        public boolean isOnScreen(int x, int y){
+        public boolean isOnScreen(){
             return (x > -1 && x < width && y > -1 && y < height);
         }
 
@@ -62,5 +61,3 @@ public class FoodCat extends Sprite {
     // they will randomly spawn
     // we will need more and more each time to level up
     //close to the end, we should also add different types of bait (like the angels/god) but maybe that's another class.
-
-}

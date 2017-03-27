@@ -9,15 +9,12 @@ public class FoodCat extends Sprite {
     private Rectangle leftSide, rightSide, top, bottom;
     private int width, height;
 
-    public FoodCat() {
-        width = w;
-        height = h;
-        sprites = new ArrayList<Sprite>();
+    public FoodCat(int x, int y, int dir) {
+        super(x,y,dir);
         leftSide = new Rectangle(-5, -5, 10, height+10);
         rightSide = new Rectangle(width-5, -5, 10, height+10);
         top = new Rectangle(-5, -5, width+10, 10);
         bottom = new Rectangle(-5, height-5, width+10, 10);
-        super();
         setPic("baseCat", NORTH);
         int a = (int)((Math.random() * 1200));
         int b = (int)((Math.random() * 800 ));

@@ -15,6 +15,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class Main extends JPanel {
 
@@ -22,7 +23,7 @@ public class Main extends JPanel {
 
     private Timer timer;
     private Sprite cat;
-
+    private ArrayList<Sprite> kitties;
     private boolean[] keys;
 
     public Main() {
@@ -113,9 +114,11 @@ public class Main extends JPanel {
     public void loadlevel (int level) {
 
         if (level == 1) {
-            new GodCat(400, 400,Sprite.EAST);
+            kitties.add(new GodCat(400, 400,Sprite.EAST));
+            kitties.add(new FoodCat());
         }
     }
+
     //Our paint method.
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -125,7 +128,10 @@ public class Main extends JPanel {
         g2.fillRect(0,0,1200,800);
 
         //Draws all the sprites.
-        theWorld.drawSprites(g2);
+        for(Sprite s: kitties){
+            s.draw(g2);
+        }
+        cat.draw(g2);
 
     }
 

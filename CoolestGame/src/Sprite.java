@@ -17,7 +17,7 @@ public class Sprite {
 
     //Constructors.
 
-    public Sprite(int x, int y, int direction,) {
+    public Sprite(int x, int y, int direction) {
         loc = new Point(x, y);
         dir = direction;
         setPic("baseCat.png", NORTH);

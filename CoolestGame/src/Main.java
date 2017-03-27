@@ -27,11 +27,9 @@ public class Main extends JPanel {
 
     public Main() {
         keys = new boolean[512];
+        cat = new KittyCatFat(100, 100,Sprite.EAST);
 
-            cat = new KittyCatFat(100, 100,Sprite.EAST);
-        theWorld.addSprite(new GodCat(400, 400,Sprite.EAST,theWorld));
-
-
+        loadlevel(1);
         timer = new Timer(40, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -54,8 +52,6 @@ public class Main extends JPanel {
                     cat.update();
                 }
 
-
-                theWorld.updateSprites();
                 repaint();
             }
         });
@@ -114,6 +110,12 @@ public class Main extends JPanel {
 
     }
 
+    public void loadlevel (int level) {
+
+        if (level == 1) {
+            new GodCat(400, 400,Sprite.EAST);
+        }
+    }
     //Our paint method.
     public void paintComponent(Graphics g) {
         super.paintComponent(g);

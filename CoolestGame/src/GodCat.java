@@ -17,7 +17,7 @@ public class GodCat extends Sprite {
 
     @Override
     public void update(){
-
+      super.update();
     }
 
 }

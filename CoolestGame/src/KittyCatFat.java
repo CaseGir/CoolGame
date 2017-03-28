@@ -8,20 +8,14 @@ public class KittyCatFat extends Sprite{
     private int steps, maxSteps;
 
 
-    public KittyCatFat(int x, int y, int nSteps){
+    public KittyCatFat(int x, int y, int dir){
         super(x,y, EAST);
         steps = 0;
-        maxSteps = nSteps;
         setPic("baseCat.png", NORTH);
     }
     @Override
     public void update(){
 
-        if(steps == maxSteps){
-            steps = 0;
-            rotateBy(-90);
-        }
-        steps++;
         super.update();
     }
 

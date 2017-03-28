@@ -24,4 +24,5 @@ public class KittyCatFat extends Sprite{
         steps++;
         super.update();
     }
+
 }

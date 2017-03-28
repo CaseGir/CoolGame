@@ -6,56 +6,21 @@ import java.util.ArrayList;
  */
 public class FoodCat extends Sprite {
 
-    private Rectangle leftSide, rightSide, top, bottom;
-    private int width, height;
 
-    public FoodCat(int x, int y,int w, int h) {
-        width = w;
-        height = h;
-        leftSide = new Rectangle(-5, -5, 10, height+10);
-        rightSide = new Rectangle(width-5, -5, 10, height+10);
-        top = new Rectangle(-5, -5, width+10, 10);
-        bottom = new Rectangle(-5, height-5, width+10, 10);
-        super(x,y);
+    public FoodCat(int xx, int yy, int dir) {
+        super(xx, yy, dir);
         setPic("baseCat", NORTH);
-        int a = (int)((Math.random() * 1200));
-        int b = (int)((Math.random() * 800 ));
-        setLoc(new Point(a,b));
+        int a = (int) ((Math.random() * 1200));
+        int b = (int) ((Math.random() * 800));
+        setLoc(new Point(a, b));
         setSpeed(1);
     }
 
     @Override
-    public void update(){
-        public boolean isOnScreen(){
-            return (x > -1 && x < width && y > -1 && y < height);
-        }
-
-        public boolean hitLeftSide(Sprite spr){
-            Rectangle spriteBox = spr.getBoundingRectangle();
-            if(spriteBox.intersects(leftSide))
-                return true;
-            return false;
-        }
-        public boolean hitRightSide(Sprite spr){
-            Rectangle spriteBox = spr.getBoundingRectangle();
-            if(spriteBox.intersects(rightSide))
-                return true;
-            return false;
-        }
-        public boolean hitTop(Sprite spr){
-            Rectangle spriteBox = spr.getBoundingRectangle();
-            if(spriteBox.intersects(top))
-                return true;
-            return false;
-        }
-        public boolean hitBottom(Sprite spr){
-            Rectangle spriteBox = spr.getBoundingRectangle();
-            if(spriteBox.intersects(bottom))
-                return true;
-            return false;
-        }
+    public void update() {
 
     }
+}
 
     // we will eat these to get bigger
     // they will randomly spawn

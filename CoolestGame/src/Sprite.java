@@ -14,17 +14,29 @@ public class Sprite {
     private int speed; //Number of pixels moved each frame.
     private int id;
     public static final int NORTH = 90, SOUTH = 270, WEST = 180, EAST = 0, NE = 45, NW = 135, SW = 225, SE = 315;
+    private Rectangle leftSide, rightSide, top, bottom;
+    private int width, height;
+    private int x,y;
 
     //Constructors.
 
-    public Sprite(int x, int y, int direction) {
-        loc = new Point(x, y);
+    public Sprite(int xx, int yy, int direction) {
+        loc = new Point(xx, yy);
         dir = direction;
         setPic("baseCat.png", NORTH);
         speed = 5;
 
         id = nextID;
         nextID++;
+
+        x = xx;
+        y = yy;
+        width = 100;
+        height = 197;
+        leftSide = new Rectangle(-5, -5, 10, height+10);
+        rightSide = new Rectangle(width-5, -5, 10, height+10);
+        top = new Rectangle(-5, -5, width+10, 10);
+        bottom = new Rectangle(-5, height-5, width+10, 10);
     }
 
     public Sprite(Point location, int direction) {
@@ -35,6 +47,35 @@ public class Sprite {
 
         id = nextID;
         nextID++;
+    }
+
+    public boolean isOnScreen(){
+        return (x > -1 && x < width && y > -1 && y < height);
+    }
+
+    public boolean hitLeftSide(Sprite spr){
+        Rectangle spriteBox = spr.getBoundingRectangle();
+        if(spriteBox.intersects(leftSide))
+            return true;
+        return false;
+    }
+    public boolean hitRightSide(Sprite spr){
+        Rectangle spriteBox = spr.getBoundingRectangle();
+        if(spriteBox.intersects(rightSide))
+            return true;
+        return false;
+    }
+    public boolean hitTop(Sprite spr){
+        Rectangle spriteBox = spr.getBoundingRectangle();
+        if(spriteBox.intersects(top))
+            return true;
+        return false;
+    }
+    public boolean hitBottom(Sprite spr){
+        Rectangle spriteBox = spr.getBoundingRectangle();
+        if(spriteBox.intersects(bottom))
+            return true;
+        return false;
     }
 
     /**

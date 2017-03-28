@@ -28,7 +28,7 @@ public class Main extends JPanel {
 
     public Main() {
         keys = new boolean[512];
-        cat = new KittyCatFat(100, 100,Sprite.EAST);
+        cat = new KittyCatFat(100, 100,Sprite.NORTH);
 
         loadlevel(1);
         timer = new Timer(40, new ActionListener() {
@@ -115,7 +115,10 @@ public class Main extends JPanel {
 
         if (level == 1) {
             kitties.add(new GodCat(400, 400,Sprite.EAST));
-            kitties.add(new FoodCat());
+
+            int a = (int)(Math.random()*1200);
+            int b = (int)(Math.random()*800);
+            kitties.add(new FoodCat(a,b,Sprite.EAST));
         }
     }
 

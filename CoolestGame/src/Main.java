@@ -57,12 +57,14 @@ public class Main extends JPanel {
 
                 prog.hit();  //Checks for intersections and stuff
 
-                if(Math.random() < 0.004){
+                if(Math.random() < 0.04){
                     int a = (int)(Math.random()*1200);
                     int b = (int)(Math.random()*800);
                     kitties.add(new FoodCat(a,b,Sprite.EAST));
                 }
-
+                if(prog.isFull()){
+                    cat.setPic("Cat9.png", Sprite.NORTH);
+                }
 
                 repaint();
             }

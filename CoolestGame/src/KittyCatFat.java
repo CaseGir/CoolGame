@@ -17,7 +17,7 @@ public class KittyCatFat extends Sprite{
     }
     @Override
     public void update(){
-        if(prog )
+
 
         super.update();
     }

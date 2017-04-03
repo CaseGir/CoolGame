@@ -42,4 +42,9 @@ public class ProgressBar{
             g.fillRect(2, 2, drawHealth - 2, 26); //draws health
         }
 
+        public boolean isFull(){
+
+            return drawHealth == needyNeedy;
+        }
+
     }

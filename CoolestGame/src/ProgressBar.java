@@ -26,9 +26,11 @@ public class ProgressBar{
 
         }
         public void hit(){
-            for(Sprite s : kitties){
+            for (int i = 0; i < kitties.size(); i++) {
+                Sprite s = kitties.get(i);
                 if(cat.intersects(s)){
-                    drawHealth += 1;
+                    drawHealth += 4;
+                    kitties.remove(i);
                 }
             }
         }

@@ -55,6 +55,15 @@ public class Main extends JPanel {
                     cat.update();
                 }
 
+                prog.hit();  //Checks for intersections and stuff
+
+                if(Math.random() < 0.004){
+                    int a = (int)(Math.random()*1200);
+                    int b = (int)(Math.random()*800);
+                    kitties.add(new FoodCat(a,b,Sprite.EAST));
+                }
+
+
                 repaint();
             }
         });

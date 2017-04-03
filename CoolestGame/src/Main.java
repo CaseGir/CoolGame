@@ -7,7 +7,6 @@
  - make Food randomly spawn
     - if the number needed for food is 500, then also have GodCat you can eat
  - these will be worth more in the food bar
- - make a cool window that will explain what it is if an icon is clicked
  */
 
 
@@ -23,13 +22,16 @@ public class Main extends JPanel {
 
     private Timer timer;
     private Sprite cat;
+    private ProgressBar prog;
     private ArrayList<Sprite> kitties;
     private boolean[] keys;
 
     public Main() {
         keys = new boolean[512];
-        cat = new KittyCatFat(100, 100,Sprite.NORTH);
+
+        cat = new KittyCatFat(100, 100,Sprite.NORTH, getProg());
         kitties = new ArrayList<Sprite>();
+        prog = new ProgressBar(0, 200, getCat(), getKitties());
         loadlevel(1);
         timer = new Timer(40, new ActionListener() {
             @Override
@@ -118,6 +120,7 @@ public class Main extends JPanel {
             int b = (int)(Math.random()*800);
             kitties.add(new FoodCat(a,b,Sprite.EAST));
 
+
         }
     }
 
@@ -134,6 +137,7 @@ public class Main extends JPanel {
             s.draw(g2);
         }
         cat.draw(g2);
+        prog.paint(g2);
 
     }
 
@@ -154,5 +158,10 @@ public class Main extends JPanel {
         window.setVisible(true);
         window.setResizable(false);
     }
+
+
+    public Sprite getCat(){return cat;}
+    public ArrayList getKitties(){return kitties;}
+    public ProgressBar getProg(){return prog;}
 
 }

@@ -21,6 +21,7 @@ public class FoodCat extends Sprite {
     public void update() {
 
 
+
     }
 }
 

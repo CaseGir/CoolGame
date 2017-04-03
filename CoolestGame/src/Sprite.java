@@ -2,6 +2,7 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.util.ArrayList;
 
 
 public class Sprite {
@@ -260,5 +261,6 @@ public class Sprite {
     public int getSpeed() {
         return speed;
     }
+
 
 }

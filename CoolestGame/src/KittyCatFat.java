@@ -6,12 +6,14 @@ import java.awt.*;
 public class KittyCatFat extends Sprite{
 
     private int steps, maxSteps;
+    private ProgressBar prog;
 
 
-    public KittyCatFat(int x, int y, int dir){
-        super(x,y, EAST);
+    public KittyCatFat(int x, int y, int dir, ProgressBar pro){
+        super(x,y, dir);
         steps = 0;
         setPic("baseCat.png", NORTH);
+        prog = pro;
     }
     @Override
     public void update(){

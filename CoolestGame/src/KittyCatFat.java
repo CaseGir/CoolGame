@@ -22,4 +22,9 @@ public class KittyCatFat extends Sprite{
         super.update();
     }
 
+    @Override
+    public void draw(Graphics2D g2) {
+        g2.drawImage(getPic(), getLoc().x, getLoc().y, null);
+
+    }
 }

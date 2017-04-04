@@ -80,7 +80,7 @@ public class Main extends JPanel {
                     prog.setHave();
                     prog.setNeed();
                 }
-                else if(prog.isFull() && prog.needed() >=600) {
+                else if(prog.isFull() && prog.needed() >=150) {
                     cat.setPic("Cat5.png", Sprite.NORTH);
                     prog.setHave();
                     prog.setNeed();

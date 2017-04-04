@@ -1,12 +1,8 @@
 /**
  *
  * to do:
- - find more cats for the thing to turn into
- - make Sprite bounce off walls
- - make a bar to show how many we have eaten - make this number increase once the goal is reached
- - make Food randomly spawn
-    - if the number needed for food is 500, then also have GodCat you can eat
- - these will be worth more in the food bar
+
+ Needed is not changing for progressbar
  */
 
 
@@ -25,13 +21,15 @@ public class Main extends JPanel {
     private ProgressBar prog;
     private ArrayList<Sprite> kitties;
     private boolean[] keys;
+    private int need, have;
 
     public Main() {
+        need = 150;
+        have = 0;
         keys = new boolean[512];
-
         cat = new KittyCatFat(100, 100,Sprite.NORTH, getProg());
         kitties = new ArrayList<Sprite>();
-        prog = new ProgressBar(0, 200, getCat(), getKitties());
+        prog = new ProgressBar(have, need, getCat(), getKitties());
         loadlevel(1);
         timer = new Timer(40, new ActionListener() {
             @Override
@@ -60,11 +58,48 @@ public class Main extends JPanel {
                 if(Math.random() < 0.04){
                     int a = (int)(Math.random()*1200);
                     int b = (int)(Math.random()*800);
-                    kitties.add(new FoodCat(a,b,Sprite.EAST));
+                    if (prog.needed() >= 1000){
+                        kitties.add(new GodCat(a,b,Sprite.NORTH));
+                    }
+                    else{
+                        kitties.add(new FoodCat(a,b,Sprite.NORTH, prog));
+                    }
                 }
-                if(prog.isFull()){
-                    cat.setPic("Cat9.png", Sprite.NORTH);
+                if(prog.isFull() && prog.needed() >= 1050){
+                    cat.setPic("Cat8.png", Sprite.NORTH);
+                    prog.setHave();
+                    prog.setNeed();
                 }
+                else if(prog.isFull() && prog.needed() >=900) {
+                    cat.setPic("Cat7.png", Sprite.NORTH);
+                    prog.setNeed();
+                    prog.setHave();
+                }
+                else if(prog.isFull() && prog.needed() >=750) {
+                    cat.setPic("Cat6.png", Sprite.NORTH);
+                    prog.setHave();
+                    prog.setNeed();
+                }
+                else if(prog.isFull() && prog.needed() >=600) {
+                    cat.setPic("Cat5.png", Sprite.NORTH);
+                    prog.setHave();
+                    prog.setNeed();
+                }
+//                else if(prog.isFull() && prog.needed() >=450) {
+//                    cat.setPic("Cat4.png", Sprite.NORTH);
+//                    prog.setHave();
+//                    prog.setNeed();
+//                }
+//                else if(prog.isFull() && prog.needed() >=300) {
+//                    cat.setPic("Cat3.png", Sprite.NORTH);
+//                    prog.setHave();
+//                    prog.setNeed();
+//                }
+//                else if(prog.isFull() && prog.needed() >=150) {
+//                    cat.setPic("Cat2.png", Sprite.NORTH);
+//                    prog.setHave();
+//                    prog.setNeed();
+//                }
 
                 repaint();
             }
@@ -129,7 +164,7 @@ public class Main extends JPanel {
         if (level == 1) {
             int a = (int)(Math.random()*1200);
             int b = (int)(Math.random()*800);
-            kitties.add(new FoodCat(a,b,Sprite.EAST));
+            kitties.add(new FoodCat(a,b,Sprite.NORTH, prog));
 
 
         }

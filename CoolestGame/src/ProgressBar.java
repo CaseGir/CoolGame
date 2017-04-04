@@ -29,22 +29,28 @@ public class ProgressBar{
             for (int i = 0; i < kitties.size(); i++) {
                 Sprite s = kitties.get(i);
                 if(cat.intersects(s)){
-                    drawHealth += 4;
+                    drawHealth += 3;
                     kitties.remove(i);
                 }
             }
         }
+
+
 
         public void paint(Graphics g) {
             g.setColor(Color.BLACK);
             g.fillRect(0, 0, needyNeedy, 30); //draws healthbar outline
             g.setColor(Color.WHITE);
             g.fillRect(2, 2, drawHealth - 2, 26); //draws health
+
         }
 
-        public boolean isFull(){
+        public boolean isFull(){return drawHealth >= needyNeedy;}
 
-            return drawHealth == needyNeedy;
-        }
+        public int setNeed() {return needyNeedy+=20;}
+        public int setHave() {return drawHealth=0;}
+
+        public int needed(){return needyNeedy;}
+        public int having(){return drawHealth;}
 
     }

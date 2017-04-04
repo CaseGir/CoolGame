@@ -7,25 +7,15 @@ import java.util.ArrayList;
  */
 public class FoodCat extends Sprite {
 
+    private ProgressBar prog;
 
-    public FoodCat(int xx, int yy, int dir) {
+    public FoodCat(int xx, int yy, int dir, ProgressBar pro) {
         super(xx, yy, dir);
+        prog = pro;
         setPic("baseCat.png", NORTH);
         int a = (int) ((Math.random() * 1200));
         int b = (int) ((Math.random() * 800));
         setLoc(new Point(a, b));
         setSpeed(1);
     }
-
-    @Override
-    public void update() {
-
-
-
-    }
 }
-
-    // we will eat these to get bigger
-    // they will randomly spawn
-    // we will need more and more each time to level up
-    //close to the end, we should also add different types of bait (like the angels/god) but maybe that's another class.

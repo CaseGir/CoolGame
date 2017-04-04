@@ -1,5 +1,7 @@
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
@@ -89,6 +91,13 @@ public class Sprite {
         g2.rotate(rotationRequired, loc.x+locationX, loc.y+locationX);
         g2.drawImage(pic, loc.x, loc.y, null);
         g2.rotate(-rotationRequired, loc.x+locationX, loc.y+locationX);
+
+//        AffineTransform tx = AffineTransform.getRotateInstance(rotationRequired, locationX, locationY);
+//        AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
+//        g2.drawImage(op.filter(pic, null), loc.x, loc.y, null);
+
+        g2.setColor(Color.BLACK);
+        g2.draw(getBoundingRectangle());
     }
 
     /**
@@ -140,6 +149,12 @@ public class Sprite {
      * @return the bounding Rectangle.
      */
     public Rectangle getBoundingRectangle() {
+
+//        double rotationRequired = Math.toRadians(picOrientation - dir);
+//        double locationX = pic.getWidth() / 2;
+//        double locationY = pic.getHeight() / 2;
+//
+
         return new Rectangle(loc.x, loc.y, pic.getWidth(), pic.getHeight());
     }
 

@@ -96,8 +96,8 @@ public class Sprite {
 //        AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
 //        g2.drawImage(op.filter(pic, null), loc.x, loc.y, null);
 
-        g2.setColor(Color.BLACK);
-        g2.draw(getBoundingRectangle());
+//        g2.setColor(Color.BLACK);
+//        g2.draw(getBoundingRectangle());
     }
 
     /**

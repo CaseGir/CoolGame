@@ -47,7 +47,7 @@ public class ProgressBar{
 
         public boolean isFull(){return drawHealth >= needyNeedy;}
 
-        public int setNeed() {return needyNeedy+=20;}
+        public int setNeed() {return needyNeedy+=150;}
         public int setHave() {return drawHealth=0;}
 
         public int needed(){return needyNeedy;}

@@ -12,7 +12,7 @@ public class KittyCatFat extends Sprite{
     public KittyCatFat(int x, int y, int dir, ProgressBar pro){
         super(x,y, dir);
         steps = 0;
-        setPic("baseCat.png", NORTH);
+        setPic("Cat1.png", NORTH);
         prog = pro;
     }
     @Override

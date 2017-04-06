@@ -80,26 +80,26 @@ public class Main extends JPanel {
                     prog.setHave();
                     prog.setNeed();
                 }
-                else if(prog.isFull() && prog.needed() >=150) {
+                else if(prog.isFull() && prog.needed() >=600) {
                     cat.setPic("Cat5.png", Sprite.NORTH);
                     prog.setHave();
                     prog.setNeed();
                 }
-//                else if(prog.isFull() && prog.needed() >=450) {
-//                    cat.setPic("Cat4.png", Sprite.NORTH);
-//                    prog.setHave();
-//                    prog.setNeed();
-//                }
-//                else if(prog.isFull() && prog.needed() >=300) {
-//                    cat.setPic("Cat3.png", Sprite.NORTH);
-//                    prog.setHave();
-//                    prog.setNeed();
-//                }
-//                else if(prog.isFull() && prog.needed() >=150) {
-//                    cat.setPic("Cat2.png", Sprite.NORTH);
-//                    prog.setHave();
-//                    prog.setNeed();
-//                }
+                else if(prog.isFull() && prog.needed() >=450) {
+                    cat.setPic("Cat4.png", Sprite.NORTH);
+                    prog.setHave();
+                    prog.setNeed();
+                }
+                else if(prog.isFull() && prog.needed() >=300) {
+                    cat.setPic("Cat3.png", Sprite.NORTH);
+                    prog.setHave();
+                    prog.setNeed();
+                }
+                else if(prog.isFull() && prog.needed() >=150) {
+                    cat.setPic("Cat2.png", Sprite.NORTH);
+                    prog.setHave();
+                    prog.setNeed();
+                }
 
                 repaint();
             }

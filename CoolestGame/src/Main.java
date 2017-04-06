@@ -58,11 +58,14 @@ public class Main extends JPanel {
                 if(Math.random() < 0.04){
                     int a = (int)(Math.random()*1200);
                     int b = (int)(Math.random()*800);
+                    int c = (int)(Math.random()*1200);
+                    int d = (int)(Math.random()*800);
                     if (prog.needed() >= 1000){
                         kitties.add(new GodCat(a,b,Sprite.NORTH));
                     }
                     else{
                         kitties.add(new FoodCat(a,b,Sprite.NORTH, prog));
+                        kitties.add(new GodCat(c,d,Sprite.NORTH));
                     }
                 }
                 if(prog.isFull() && prog.needed() >= 1050){

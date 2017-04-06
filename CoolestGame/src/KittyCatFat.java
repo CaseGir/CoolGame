@@ -14,6 +14,7 @@ public class KittyCatFat extends Sprite{
         steps = 0;
         setPic("Cat1.png", NORTH);
         prog = pro;
+        setSpeed(8);
     }
     @Override
     public void update(){

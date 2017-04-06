@@ -60,7 +60,7 @@ public class Main extends JPanel {
                     int b = (int)(Math.random()*800);
                     int c = (int)(Math.random()*1200);
                     int d = (int)(Math.random()*800);
-                    if (prog.needed() >= 1000){
+                    if (prog.needed() <= 1000){
                         kitties.add(new GodCat(a,b,Sprite.NORTH));
                     }
                     else{

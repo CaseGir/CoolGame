@@ -4,7 +4,7 @@ import java.awt.*;
  * Created by cassandra_varnau on 3/16/17.
  */
 public class GodCat extends Sprite {
-    //better food
+    //yum yum; better food
 
     public GodCat(int x, int y, int dir) {
         super(x, y, EAST);

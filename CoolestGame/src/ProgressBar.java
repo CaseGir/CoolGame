@@ -16,33 +16,28 @@ public class ProgressBar{
         private Sprite cat;
         private ArrayList<Sprite> kitties;
 
-
-
     public ProgressBar(int h, int n, Sprite c, ArrayList <Sprite> k) {
             drawHealth = h;
             needyNeedy = n;
             cat = c;
             kitties = k;
-
         }
+
         public void hit(){
             for (int i = 0; i < kitties.size(); i++) {
                 Sprite s = kitties.get(i);
                 if(cat.intersects(s)){
-                    drawHealth += 3;
+                    drawHealth += 5;
                     kitties.remove(i);
                 }
             }
         }
 
-
-
         public void paint(Graphics g) {
             g.setColor(Color.BLACK);
             g.fillRect(0, 0, needyNeedy, 30); //draws healthbar outline
-            g.setColor(Color.WHITE);
+            g.setColor(Color.ORANGE);
             g.fillRect(2, 2, drawHealth - 2, 26); //draws health
-
         }
 
         public boolean isFull(){return drawHealth >= needyNeedy;}

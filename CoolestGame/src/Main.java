@@ -1,11 +1,3 @@
-/**
- *
- * to do:
-
- Needed is not changing for progressbar
- */
-
-
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,7 +9,7 @@ public class Main extends JPanel {
     public static final int FRAMEWIDTH = 1200, FRAMEHEIGHT = 800;
 
     private Timer timer;
-    private Sprite cat;
+    private Sprite cat,instruct;
     private ProgressBar prog;
     private ArrayList<Sprite> kitties;
     private boolean[] keys;
@@ -28,6 +20,7 @@ public class Main extends JPanel {
         have = 0;
         keys = new boolean[512];
         cat = new KittyCatFat(100, 100,Sprite.NORTH, getProg());
+        instruct = new Instruct(500,300,Sprite.EAST);
         kitties = new ArrayList<Sprite>();
         prog = new ProgressBar(have, need, getCat(), getKitties());
         loadlevel(1);
@@ -55,7 +48,7 @@ public class Main extends JPanel {
 
                 prog.hit();  //Checks for intersections and stuff
 
-                if(Math.random() < 0.04){
+                if(Math.random() < 0.05){
                     int a = (int)(Math.random()*1200);
                     int b = (int)(Math.random()*800);
 
@@ -172,8 +165,6 @@ public class Main extends JPanel {
             int a = (int)(Math.random()*1200);
             int b = (int)(Math.random()*800);
             kitties.add(new FoodCat(a,b,Sprite.NORTH, prog));
-
-
         }
     }
 
@@ -182,9 +173,18 @@ public class Main extends JPanel {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
 
-        g2.setColor(new Color(7, 175, 82));
+        g2.setColor(new Color(206, 255, 195));
         g2.fillRect(0,0,1200,800);
-
+        g2.setColor(new Color(173, 232, 154));
+        g2.fillRect(100,300,300,200);
+        g2.fillRect(800,100,200,300);
+        g2.fillRect(500,600,300,200);
+        g2.fillRect(100,100,200,300);
+        g2.fillRect(900,400,300,300);
+        g2.fillRect(800,50,300,200);
+        g2.fillRect(450,100,250,200);
+        g2.fillRect(50,600,300,200);
+        instruct.draw(g2);
         //Draws all the sprites.
         for(Sprite s: kitties){
             s.draw(g2);
@@ -196,7 +196,8 @@ public class Main extends JPanel {
 
     //sets ups the panel and frame.
     public static void main(String[] args) {
-        JFrame window = new JFrame("Cool Game");
+
+        JFrame window = new JFrame("Kitty Evolution");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setBounds(0, 0, FRAMEWIDTH, FRAMEHEIGHT + 22); //(x, y, w, h) 20 due to title bar.
 

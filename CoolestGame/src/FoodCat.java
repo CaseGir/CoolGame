@@ -12,8 +12,8 @@ public class FoodCat extends Sprite {
     public FoodCat(int xx, int yy, int dir, ProgressBar pro) {
         super(xx, yy, dir);
         prog = pro;
-        int a = (int) ((Math.random() * 1200));
-        int b = (int) ((Math.random() * 800));
+        int a = (int) ((Math.random() * 1000));
+        int b = (int) ((Math.random() * 600));
         setLoc(new Point(a, b));
         setSpeed(1);
         int rand = (int) ((Math.random() * 8));

@@ -48,12 +48,12 @@ public class Main extends JPanel {
 
                 prog.hit();  //Checks for intersections and stuff
 
-                if(Math.random() < 0.05){
-                    int a = (int)(Math.random()*1200);
-                    int b = (int)(Math.random()*800);
+                if(Math.random() < 0.06){
+                    int a = (int)(Math.random()*1000);
+                    int b = (int)(Math.random()*600);
 
-                    int c = (int)(Math.random()*1200);
-                    int d = (int)(Math.random()*800);
+                    int c = (int)(Math.random()*1000);
+                    int d = (int)(Math.random()*600);
 
                     if (prog.needed() >= 1000){
                         kitties.add(new GodCat(a,b,Sprite.NORTH));
@@ -162,8 +162,8 @@ public class Main extends JPanel {
     public void loadlevel (int level) {
 
         if (level == 1) {
-            int a = (int)(Math.random()*1200);
-            int b = (int)(Math.random()*800);
+            int a = (int)(Math.random()*1000);
+            int b = (int)(Math.random()*600);
             kitties.add(new FoodCat(a,b,Sprite.NORTH, prog));
         }
     }
@@ -197,7 +197,7 @@ public class Main extends JPanel {
     //sets ups the panel and frame.
     public static void main(String[] args) {
 
-        JFrame window = new JFrame("Kitty Evolution");
+        JFrame window = new JFrame("KITTY EVOLUTION");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setBounds(0, 0, FRAMEWIDTH, FRAMEHEIGHT + 22); //(x, y, w, h) 20 due to title bar.
 
